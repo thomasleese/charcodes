@@ -1,16 +1,26 @@
 import QtQuick 2.0
+import QtQuick.Controls 1.1
 
-Rectangle {
-    width: 360
-    height: 360
-    Text {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+ApplicationWindow {
+    visible: true
+    width: 480
+    height: 320
+
+    TextField {
+        id: inputString
+
+        focus: true
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.margins: 5
     }
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            Qt.quit();
-        }
+
+    GridView {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.top: inputString.bottom
+        anchors.margins: 5
     }
 }

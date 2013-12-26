@@ -1,13 +1,13 @@
-#include <QtGui/QGuiApplication>
-#include <QtQuick/QQuickView>
+#include <QtWidgets/QApplication>
+#include <QtQml/QQmlApplicationEngine>
 
 int main(int argc, char *argv[]) {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
+    app.setApplicationName("Character Codes");
+    app.setOrganizationDomain("uk.me.tomleese");
 
-    QQuickView view;
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl("qrc:/qml/main.qml"));
-    view.show();
+    QQmlApplicationEngine engine;
+    engine.load(QUrl("qrc:/qml/main.qml"));
 
     return app.exec();
 }
