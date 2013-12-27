@@ -19,10 +19,41 @@ ApplicationWindow {
         onTextChanged: gridCharacters.model.text = text
     }
 
+    Component {
+        id: componentCharacter
+
+        Rectangle {
+            width: gridCharacters.cellWidth
+            height: gridCharacters.cellHeight
+            color: "#EEEEEE"
+
+            Column {
+                anchors.centerIn: parent
+
+                Text {
+                    text: raw
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                Text {
+                    text: unicode
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                Text {
+                    text: htmlEntity
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
+        }
+    }
+
     GridView {
         id: gridCharacters
 
         model: textCharacterModel
+        clip: true
+        delegate: componentCharacter
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom

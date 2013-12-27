@@ -10,12 +10,19 @@ class TextCharacterModel : public QAbstractListModel {
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
 
 public:
+    enum TextRoles {
+        RawRole = Qt::UserRole + 1,
+        UnicodeRole,
+        HtmlEntityRole
+    };
+
     explicit TextCharacterModel(QObject *parent = 0);
     virtual ~TextCharacterModel();
 
     QString text() const;
     void setText(const QString &text);
 
+    QHash<int, QByteArray> roleNames() const;
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 

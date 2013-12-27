@@ -20,9 +20,25 @@ QString TextCharacterModel::text() const {
 }
 
 void TextCharacterModel::setText(const QString &text) {
+    int lenDiff = text.length() - this->d->text.length();
+    if (lenDiff > 0) {
+        this->beginInsertRows(QModelIndex(), this->d->text.length(), text.length() - 1);
+        this->endInsertRows();
+    } else if (lenDiff < 0) {
+        this->beginRemoveRows(QModelIndex(), text.length(), this->d->text.length() - 1);
+        this->endRemoveRows();
+    }
+
     this->d->text = text;
-    qDebug() << text;
     emit textChanged(text);
+}
+
+QHash<int, QByteArray> TextCharacterModel::roleNames() const {
+    QHash<int, QByteArray> roles;
+    roles[RawRole] = "raw";
+    roles[UnicodeRole] = "unicode";
+    roles[HtmlEntityRole] = "htmlEntity";
+    return roles;
 }
 
 int TextCharacterModel::rowCount(const QModelIndex &parent) const {
@@ -30,5 +46,16 @@ int TextCharacterModel::rowCount(const QModelIndex &parent) const {
 }
 
 QVariant TextCharacterModel::data(const QModelIndex &index, int role) const {
-    return this->d->text.at(index.row());
+    QChar c = this->d->text.at(index.row());
+
+    switch (role) {
+    case RawRole:
+        return "“" + QString(c) + "”";
+    case UnicodeRole:
+        return "\\u" + QString::number(c.unicode());
+    case HtmlEntityRole:
+        return "&#" + QString::number(c.unicode()) + ";";
+    default:
+        return c;
+    }
 }
