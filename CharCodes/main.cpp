@@ -1,4 +1,5 @@
 #include <QtQml>
+#include <QtGui/QFont>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtWidgets/QApplication>
 
@@ -8,6 +9,7 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     app.setApplicationName("Character Codes");
     app.setOrganizationDomain("uk.me.tomleese");
+    app.setFont(QFont("Monospace", 11));
 
     qmlRegisterType<TextCharacterModel>("CharCodes", 1, 0, "TextCharacterModel");
 

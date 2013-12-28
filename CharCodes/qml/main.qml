@@ -22,27 +22,37 @@ ApplicationWindow {
     Component {
         id: componentCharacter
 
-        Rectangle {
+        Item {
             width: gridCharacters.cellWidth
             height: gridCharacters.cellHeight
-            color: "#EEEEEE"
 
-            Column {
+            Rectangle {
+                id: container
+                width: gridCharacters.cellWidth - 10
+                height: gridCharacters.cellHeight - 10
                 anchors.centerIn: parent
+                color: "#EEEEEE"
 
-                Text {
-                    text: raw
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
+                Column {
+                    spacing: 5
+                    anchors.centerIn: parent
 
-                Text {
-                    text: unicode
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
+                    Text {
+                        text: raw
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
 
-                Text {
-                    text: htmlEntity
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    Text {
+                        text: unicode
+                        color: "#555555"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    Text {
+                        text: htmlEntity
+                        color: "#555555"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
                 }
             }
         }
@@ -53,6 +63,7 @@ ApplicationWindow {
 
         model: textCharacterModel
         clip: true
+        cellWidth: 90
         delegate: componentCharacter
         anchors.left: parent.left
         anchors.right: parent.right

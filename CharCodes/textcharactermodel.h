@@ -23,7 +23,7 @@ public:
     void setText(const QString &text);
 
     QHash<int, QByteArray> roleNames() const;
-    int rowCount(const QModelIndex &parent) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role) const;
 
 signals:
