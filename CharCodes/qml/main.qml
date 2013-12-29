@@ -7,6 +7,10 @@ ApplicationWindow {
     width: 480
     height: 320
 
+    Clipboard {
+        id: clipboard
+    }
+
     TextField {
         id: inputString
 
@@ -37,18 +41,18 @@ ApplicationWindow {
                     spacing: 5
                     anchors.centerIn: parent
 
-                    Text {
+                    ClipboardText {
                         text: raw
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
 
-                    Text {
+                    ClipboardText {
                         text: unicode
                         color: "#555555"
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
 
-                    Text {
+                    ClipboardText {
                         text: htmlEntity
                         color: "#555555"
                         anchors.horizontalCenter: parent.horizontalCenter
