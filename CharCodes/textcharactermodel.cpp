@@ -56,7 +56,7 @@ QVariant TextCharacterModel::data(const QModelIndex &index, int role) const {
     case RawRole:
         return "“" + QString(c) + "”";
     case UnicodeRole:
-        return "\\u" + QString::number(c.unicode());
+        return "\\u" + QString("%1").arg(c.unicode(), 4, 16, QChar('0'));
     case HtmlEntityRole:
         return "&#" + QString::number(c.unicode()) + ";";
     default:
