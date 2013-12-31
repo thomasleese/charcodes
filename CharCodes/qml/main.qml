@@ -77,6 +77,20 @@ ApplicationWindow {
         anchors.bottom: parent.bottom
         anchors.top: inputString.bottom
         anchors.margins: 5
+
+        add: Transition {
+            ParallelAnimation {
+                NumberAnimation { property: "opacity"; from: 0; duration: 250 }
+                NumberAnimation { properties: "x,y"; from: 0; duration: 250 }
+            }
+        }
+
+        remove: Transition {
+            ParallelAnimation {
+                NumberAnimation { property: "opacity"; to: 0; duration: 250 }
+                NumberAnimation { properties: "x,y"; to: 0; duration: 250 }
+            }
+        }
     }
 
     Rectangle {

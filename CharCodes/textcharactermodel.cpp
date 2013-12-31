@@ -50,6 +50,10 @@ int TextCharacterModel::rowCount(const QModelIndex &parent) const {
 }
 
 QVariant TextCharacterModel::data(const QModelIndex &index, int role) const {
+    if (index.row() >= this->d->text.length()) {
+        return "";
+    }
+
     QChar c = this->d->text.at(index.row());
 
     switch (role) {
