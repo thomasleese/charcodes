@@ -4,6 +4,7 @@
 #include <QtWidgets/QApplication>
 
 #include "clipboard.h"
+#include "qtquick2applicationviewer.h"
 #include "textcharactermodel.h"
 
 int main(int argc, char *argv[]) {
@@ -15,9 +16,10 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<TextCharacterModel>("CharCodes", 1, 0, "TextCharacterModel");
     qmlRegisterType<Clipboard>("CharCodes", 1, 0, "Clipboard");
 
-    QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("textCharacterModel", new TextCharacterModel());
-    engine.load(QUrl("qrc:/qml/main.qml"));
+    QtQuick2ApplicationViewer viewer;
+    viewer.rootContext()->setContextProperty("textCharacterModel", new TextCharacterModel());
+    viewer.setMainQmlFile("qml/CharCodes/main.qml");
+    viewer.showExpanded();
 
     return app.exec();
 }

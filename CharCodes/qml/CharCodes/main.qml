@@ -2,10 +2,12 @@ import QtQuick 2.0
 import QtQuick.Controls 1.1
 import CharCodes 1.0
 
-ApplicationWindow {
-    visible: true
+Rectangle {
     width: 480
     height: 320
+    color: palette.window
+
+    SystemPalette { id: palette; colorGroup: SystemPalette.Active }
 
     Clipboard {
         id: clipboard
