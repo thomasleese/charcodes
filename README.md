@@ -6,8 +6,8 @@ _A simple application for viewing character codes._
 
 ## Building and Running
 
-    cd FlashCards
+    cd CharCodes
     qmake
     make
-    ./FlashCards
+    ./CharCodes
 
