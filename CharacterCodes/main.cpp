@@ -13,12 +13,12 @@ int main(int argc, char *argv[]) {
     app.setOrganizationDomain("uk.me.tomleese");
     app.setFont(QFont("Monospace", 11));
 
-    qmlRegisterType<TextCharacterModel>("CharCodes", 1, 0, "TextCharacterModel");
-    qmlRegisterType<Clipboard>("CharCodes", 1, 0, "Clipboard");
+    qmlRegisterType<TextCharacterModel>("CharacterCodes", 1, 0, "TextCharacterModel");
+    qmlRegisterType<Clipboard>("CharacterCodes", 1, 0, "Clipboard");
 
     QtQuick2ApplicationViewer viewer;
     viewer.rootContext()->setContextProperty("textCharacterModel", new TextCharacterModel());
-    viewer.setMainQmlFile("qml/CharCodes/main.qml");
+    viewer.setMainQmlFile("qml/CharacterCodes/main.qml");
     viewer.showExpanded();
 
     return app.exec();

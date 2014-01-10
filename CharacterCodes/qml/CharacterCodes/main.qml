@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.1
-import CharCodes 1.0
+import CharacterCodes 1.0
 
 Rectangle {
     width: 480

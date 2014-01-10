@@ -1,5 +1,5 @@
 # Add more folders to ship with the application, here
-folder_01.source = qml/CharCodes
+folder_01.source = qml/CharacterCodes
 folder_01.target = qml
 DEPLOYMENTFOLDERS = folder_01
 

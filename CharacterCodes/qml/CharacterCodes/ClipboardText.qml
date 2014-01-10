@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import CharCodes 1.0
+import CharacterCodes 1.0
 
 Text {
     signal saved(string text)
