@@ -1,0 +1,40 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    background: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin: 20px 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 6px 12px;
+    text-transform: uppercase;
+    color: rgb(160, 160, 160);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+footer {
+    margin: 20px;
+    font-size: 0.9em;
+    color: rgb(200, 200, 200);
+}
