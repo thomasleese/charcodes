@@ -52,6 +52,10 @@ main ul li {
     width: 90px;
 }
 
+main p {
+    word-wrap: break-word;
+}
+
 footer {
     margin: 40px 20px 20px 20px;
     font-size: 0.9em;
